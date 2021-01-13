@@ -11,7 +11,8 @@ public abstract class TabImpl extends VerticalLayoutContainer implements Tab{
 	protected QueriesDTO quesriesDTO = new QueriesDTO();
 	
 	public TabImpl() {
-		setHeight(2240);
+		//TODO: NEED TO FIND A BETTER WAY, may be BorderLayoutContianer can help
+		setHeight(Window.getClientHeight()+2100);
 	}
 
 	@Override

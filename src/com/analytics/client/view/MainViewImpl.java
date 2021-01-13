@@ -24,7 +24,8 @@ public class MainViewImpl implements MainView
 		container.add( (IsWidget) getHeader() );
 		container.add(centerContainer);
 		centerContainer.setScrollMode(ScrollSupport.ScrollMode.AUTO);
-		centerContainer.setHeight(Window.getClientHeight()-120);
+		//TODO: NEED TO FIND A BETTER WAY, may be BorderLayoutContianer can help
+		centerContainer.setHeight(Window.getClientHeight()-90);
 		Window.addResizeHandler(Event -> onResize());
 		return container;
 	}

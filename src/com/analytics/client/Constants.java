@@ -8,5 +8,6 @@ public class Constants {
 	public static final String MENU_MANUAL = "Manual";
 	public static final String MENU_CONNECT = "Connection";
 	public static final String CRC_ID = null;
+	public static final String MENU_QUERIES = "queries";
 
 }

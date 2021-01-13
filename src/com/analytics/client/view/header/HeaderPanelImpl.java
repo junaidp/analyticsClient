@@ -175,6 +175,10 @@ public class HeaderPanelImpl extends VerticalLayoutContainer implements HeaderPa
 		case Constants.MENU_MANUAL:
 			Window.open( GWT.getHostPageBaseURL()+"some.htm", "", null );
 			break;
+			
+		case Constants.MENU_QUERIES:
+			 display( getQueriesMenu() );
+			 break;
 		
 		default:
 				//DashboardUtils.logInfo("Unexpected selected Menu: " + selectedMenu);
