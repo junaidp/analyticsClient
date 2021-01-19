@@ -7,7 +7,7 @@ public class PanelTabItemConfig extends TabItemConfig
 {
 	public enum TabItemId
 	{
-		STEP1, STEP2;
+		IMPORT, STEP1, STEP2;
 	}
 
 	private TabItemId tabItemId = null;

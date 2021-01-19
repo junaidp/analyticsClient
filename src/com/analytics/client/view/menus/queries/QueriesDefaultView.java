@@ -1,10 +1,12 @@
 package com.analytics.client.view.menus.queries;
 
 import com.analytics.client.view.menus.queries.PanelTabItemConfig.TabItemId;
+import com.analytics.client.view.menus.queries.steps.DefaultImportData;
 import com.analytics.client.view.menus.queries.steps.DefaultStep1;
 import com.analytics.client.view.menus.queries.steps.DefaultStep2;
 import com.google.gwt.event.logical.shared.BeforeSelectionEvent;
 import com.google.gwt.event.logical.shared.SelectionEvent;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Widget;
 import com.sencha.gxt.widget.core.client.event.HideEvent;
 import com.sencha.gxt.widget.core.client.event.ShowEvent;
@@ -13,8 +15,8 @@ public class QueriesDefaultView extends TabViewImpl{
 
 	@Override
 	public Widget getStep1() {
-		
-		return new DefaultStep1();
+		return new DefaultImportData();
+//		return new DefaultStep1();
 	}
 
 	@Override
@@ -43,9 +45,7 @@ public class QueriesDefaultView extends TabViewImpl{
 
 	@Override
 	protected Widget getStep2() {
-		return new DefaultStep2();
+		return new DefaultStep1();
 	}
-
-
 	
 }

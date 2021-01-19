@@ -28,10 +28,9 @@ public abstract class TabViewImpl extends VerticalLayoutContainer implements Hid
 		PanelTabItemConfig step2Config = new PanelTabItemConfig(TabItemId.STEP2, "Step2", getStep1(), false);
 		tabPanel.add( getStep2(), step2Config );
 		add(tabPanel, new VerticalLayoutData(1, 0.5, new Margins(10, 0, 0, 0)));
-		
+		tabPanel.addStyleName("w3-display-bottom w3-padding");
 		tabPanel.addSelectionHandler(this);
-		tabPanel.addBeforeSelectionHandler(this);
-		
+		tabPanel.addBeforeSelectionHandler(this);		
 		tabPanel.setBorders(false);
 		tabPanel.setCloseContextMenu(false);
 		tabPanel.setAnimScroll(true);

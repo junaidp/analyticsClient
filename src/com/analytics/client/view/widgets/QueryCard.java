@@ -1,22 +1,20 @@
 package com.analytics.client.view.widgets;
 
-import com.google.gwt.dom.client.Style.TextAlign;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Image;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.TextBox;
+import com.sencha.gxt.widget.core.client.form.FieldLabel;
 
 public class QueryCard extends HorizontalPanel{
 	
 	private Image icon;
-	private Label lblName;
+	private FieldLabel lblName;
 	
 	public QueryCard(String name) {
-		lblName = new Label();
+		lblName = new FieldLabel();
 		icon = new Image();  
 		icon.setUrl("images/query.png");
-		lblName.setText(name);
+		lblName.setContent(name);
 		icon.setSize("100px", "70px");
 		lblName.getElement().getStyle().setPaddingTop(20, Unit.PX);
 		lblName.setSize("150px", "100%");		
