@@ -7,6 +7,7 @@ import com.analytics.client.view.widgets.HeadingLabel;
 import com.analytics.client.view.widgets.QueryCard;
 import com.analytics.client.view.widgets.WizardFieldLabel;
 import com.google.gwt.dom.client.Style.FontWeight;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -108,6 +109,25 @@ public class DefaultStep1 extends TabImpl implements Tab{
 		
 		
 	}
-
+	
+	//Call this when you like to read excel , may be on success of file upload.or anywhere for now to test
+	public void readExcel()
+	{
+		rpcService.readExcel("", new AsyncCallback<String>() {
+			
+			@Override
+			public void onSuccess(String result) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onFailure(Throwable caught) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+	}
+	
 
 }

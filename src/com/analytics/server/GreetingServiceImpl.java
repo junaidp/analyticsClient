@@ -1,7 +1,18 @@
 package com.analytics.server;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.net.URL;
+import java.nio.charset.Charset;
+
 import com.analytics.client.AnalyticService;
+
 import com.analytics.shared.FieldVerifier;
+import com.analytics.shared.dtos.QueriesDTO;
+import com.google.gson.Gson;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 /**
@@ -10,36 +21,34 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 @SuppressWarnings("serial")
 public class GreetingServiceImpl extends RemoteServiceServlet implements AnalyticService {
 
-	public String greetServer(String input) throws IllegalArgumentException {
-		// Verify that the input is valid. 
-		if (!FieldVerifier.isValidName(input)) {
-			// If the input is not valid, throw an IllegalArgumentException back to
-			// the client.
-			throw new IllegalArgumentException("Name must be at least 4 characters long");
+	public String readExcel(String input) throws IllegalArgumentException {
+		  String json = null;
+		try {
+		
+		 InputStream is = new URL("").openStream();
+
+	     BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
+	   
+		
+			json = readAll(rd);
+			  Gson gson = new Gson();
+			     QueriesDTO queriesDTO = gson.fromJson( json, QueriesDTO.class);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-
-		String serverInfo = getServletContext().getServerInfo();
-		String userAgent = getThreadLocalRequest().getHeader("User-Agent");
-
-		// Escape data from the client to avoid cross-site script vulnerabilities.
-		input = escapeHtml(input);
-		userAgent = escapeHtml(userAgent);
-
-		return "Hello, " + input + "!<br><br>I am running " + serverInfo + ".<br><br>It looks like you are using:<br>"
-				+ userAgent;
+		
+	
+		return json;
 	}
+	
+	 private static String readAll(Reader rd) throws IOException {
+	        StringBuilder sb = new StringBuilder();
+	        int cp;
+	        while ((cp = rd.read()) != -1) {
+	            sb.append((char) cp);
+	        }
+	        return sb.toString();
+	    }
 
-	/**
-	 * Escape an html string. Escaping data received from the client helps to
-	 * prevent cross-site script vulnerabilities.
-	 * 
-	 * @param html the html string to escape
-	 * @return the escaped string
-	 */
-	private String escapeHtml(String html) {
-		if (html == null) {
-			return null;
-		}
-		return html.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
-	}
 }

@@ -8,5 +8,5 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
  */
 @RemoteServiceRelativePath("greet")
 public interface AnalyticService extends RemoteService {
-	String greetServer(String name) throws IllegalArgumentException;
+	String readExcel(String name) throws IllegalArgumentException;
 }
